@@ -2,6 +2,12 @@ const mongoose = require("mongoose"); //mongoose modülü dahil edilir.
 const contactShema = mongoose.Schema({
 
 //contactShema adında bir Mongoose şema nesnesi oluşturulur. Bu şema nesnesi, "name", "email" ve "phone" alanlarından oluşan bir belge yapısını tanımlar. Her alanın veri tipi belirtilir ve "required" anahtar kelimesi kullanılarak alanların zorunlu olduğu belirtilir.
+     
+      user_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"User",
+      },
       name: {
         type: String,
         required: [true, "Please add the contact name"],

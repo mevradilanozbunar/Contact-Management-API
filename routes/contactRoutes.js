@@ -1,9 +1,11 @@
 const express = require("express"); //express modülü projeye dahil edilir
 const router = express.Router(); //Express kütüphanesini kullanarak HTTP isteklerini yönetmek için bir yönlendirici (router) nesnesi oluşturur.
-
+const validateToken=require("../middleware/validateTokenHandler");
 const {getContacts,createContact, getContact,updateContact,deleteContact,} = require("../controllers/contactController");
 //contactController modülünden gerekli fonksiyonları destructuring yöntemi ile alır ve birbirleriyle ilgili HTTP istekleri için ilgili yönlendirici yöntemleri ile eşleştirir.
 
+
+router.use(validateToken);
 router.route("/").get(getContacts).post(createContact);
 //"/" rotasına GET isteği geldiğinde getContacts fonksiyonunu, POST isteği geldiğinde createContact fonksiyonunu çalıştırmak için eşleştirir.
 
