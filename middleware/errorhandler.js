@@ -1,7 +1,10 @@
-const {constants} = require("../constants");
-const errorHandler = (err,req,res,next) => {
+//Bu kod, bir hata işleyicisi (error handler) modülünü tanımlar.
 
-    const statusCode = res.statusCode ? res.statusCode : 500;
+const {constants} = require("../constants");
+
+const errorHandler = (err,req,res,next) => { //errorHandler fonksiyonu, dört argüman ile tanımlanır: err, req, res ve next. Bu argümanlar, Express'in hata işleme işlevlerine özeldir ve belirli bir sırayla kullanılmalıdır.
+
+    const statusCode = res.statusCode ? res.statusCode : 500;  //errorHandler fonksiyonu, gelen hatanın durum kodunu (statusCode) belirler. Eğer durum kodu yoksa veya tanımlanmamışsa, varsayılan olarak 500 kullanılır.
     
     switch (statusCode) 
     {
@@ -46,3 +49,4 @@ const errorHandler = (err,req,res,next) => {
 };
 
 module.exports=errorHandler;
+

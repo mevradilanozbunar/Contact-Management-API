@@ -1,5 +1,5 @@
-const asyncHandler = require("express-async-handler");
-const Contact= require("../models/contactModel");
+const asyncHandler = require("express-async-handler"); //bir hata yakalayıcısı işlevi için gerekli olan express-async-handler modülünü yükler.
+const Contact= require("../models/contactModel"); // MongoDB veritabanındaki şemalarını tanımlayan bir contactModel.js dosyasını yükler.
 //@desc Get all contacts
 //@route GET /api/contacts
 //@access public
